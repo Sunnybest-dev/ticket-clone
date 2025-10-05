@@ -16,9 +16,8 @@ import Searchbar from "./Components/Searchbar";
 import FeaturedEvent from "./Components/FeaturedEvent";
 import PopularNearYou from "./Components/PopularNearYou";
 import MobileNavigation from "./Components/MobileNavigation";
-import Account from './Pages/Account';
 
-const App = () => {
+const Home = () => {
   const navItems = [
     { name: 'Discover', icon: Squares2X2Icon, current: true },
     { name: 'For You', icon: HeartIcon, current: false },
@@ -30,7 +29,7 @@ const App = () => {
   return (
     <div className="min-h-screen w-full text-black font-sans flex flex-col items-center overflow-hidden no-scrollbar">
       {/* Header Section */}
-      {/* <div className="w-full h-10 flex items-center bg-black justify-center px-4 pt-1 text-sm">
+      <div className="w-full h-10 flex items-center bg-black justify-center px-4 pt-1 text-sm">
         <div className="flex items-center space-x-1 relative w-full justify-center">
           <span className="font-semibold text-white text-xl text-center">ticketmaster</span>
           <div className="absolute right-1 h-5 w-5 border border-white rounded-full overflow-hidden">
@@ -44,7 +43,7 @@ const App = () => {
       </div>
 
       {/* Main Content */}
-      {/* <div className="w-full flex-grow pb-20 overflow-hidden no-scrollbar">
+      <div className="w-full flex-grow pb-20 overflow-hidden no-scrollbar">
         <div className="p-4 space-y-4 bg-black">
           <Header />
           <Searchbar />
@@ -57,12 +56,12 @@ const App = () => {
         <div className="px-4 mt-6">
           <PopularNearYou />
         </div>
-      </div>  */}
-<Account />
+      </div>
+
       {/* Bottom Navigation */}
       <MobileNavigation navItems={navItems} />
     </div>
   );
 };
 
-export default App;
+export default Home;
