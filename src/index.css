@@ -6,3 +6,30 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes horizontal-scan {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes horizontal-scan-delay {
+  0% {
+    left: -30%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.animate-scan-horizontal {
+  animation: horizontal-scan 2s linear infinite;
+}
+
+.animate-scan-horizontal-delay {
+  animation: horizontal-scan-delay 2s linear infinite;
+}
+

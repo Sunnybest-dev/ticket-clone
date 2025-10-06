@@ -11,11 +11,11 @@ import {
 } from '@heroicons/react/24/outline';
 
 // Components
-import Header from "./Components/Header";
-import Searchbar from "./Components/Searchbar";
-import FeaturedEvent from "./Components/FeaturedEvent";
-import PopularNearYou from "./Components/PopularNearYou";
-import MobileNavigation from "./Components/MobileNavigation";
+import Header from "../Components/Header";
+import Searchbar from "../Components/Searchbar";
+import FeaturedEvent from "../Components/FeaturedEvent";
+import PopularNearYou from "../Components/PopularNearYou";
+import MobileNavigation from "../Components/MobileNavigation";
 
 const Home = () => {
   const navItems = [
@@ -25,6 +25,7 @@ const Home = () => {
     { name: 'Sell', icon: null, current: false },
     { name: 'My Account', icon: UserIcon, current: false },
   ];
+
 
   return (
     <div className="min-h-screen w-full text-black font-sans flex flex-col items-center overflow-hidden no-scrollbar">
@@ -41,7 +42,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-
+     
       {/* Main Content */}
       <div className="w-full flex-grow pb-20 overflow-hidden no-scrollbar">
         <div className="p-4 space-y-4 bg-black">

@@ -9,60 +9,75 @@ import {
   UserIcon,
   Squares2X2Icon,
 } from '@heroicons/react/24/outline';
-
+import { useLocation, Routes, Route } from 'react-router-dom';
 // Components
 import Header from "./Components/Header";
 import Searchbar from "./Components/Searchbar";
-import FeaturedEvent from "./Components/FeaturedEvent";
 import PopularNearYou from "./Components/PopularNearYou";
 import MobileNavigation from "./Components/MobileNavigation";
 import Account from './Pages/Account';
+import PlaceholderPage from "./Pages/PlaceholderPage"
+import TicketCarouselView from './Pages/TicketCarouselView';
+import DiscoverPage from './Pages/DiscoverPage';
+import TicketBarcodeView from './Pages/TicketBarcodeView';
+import Home from './Pages/Home';
+import RecipientForm from './Pages/RecipientForm';
+import EventCardScreen from './Pages/EventCardScreen';
+import TicketSelectionModal from './Pages/TicketSelectionModal';
+
 
 const App = () => {
-  const navItems = [
-    { name: 'Discover', icon: Squares2X2Icon, current: true },
-    { name: 'For You', icon: HeartIcon, current: false },
-    { name: 'My Tickets', icon: TicketIcon, current: false },
-    { name: 'Sell', icon: null, current: false },
-    { name: 'My Account', icon: UserIcon, current: false },
-  ];
+  const categories = ['Concerts', 'Sports', 'Arts, Theater & Comedy'];
+    
+    const navItems = [
+        { name: 'Discover', icon: Squares2X2Icon, path: '/' },
+        { name: 'For You', icon: HeartIcon, path: '/foryou' },
+        { name: 'My Tickets', icon: TicketIcon, path: '/mytickets' },
+        { name: 'Sell', icon: null, path: '/sell' }, 
+        { name: 'My Account', icon: UserIcon, path: '/account' },
+    ];
+    
+    const location = useLocation();
+    
+    const isFullScreenModal = location.pathname.startsWith('/mytickets/barcode') || location.pathname.startsWith('/auth/otp');
+    // Check if we are on the main /mytickets page but the modal is open (TransferSelectionModal)
+    const isTicketSelectModalOpen = location.pathname === '/mytickets' && location.search.includes('action=transfer_select');
 
-  return (
-    <div className="min-h-screen w-full text-black font-sans flex flex-col items-center overflow-hidden no-scrollbar">
-      {/* Header Section */}
-      {/* <div className="w-full h-10 flex items-center bg-black justify-center px-4 pt-1 text-sm">
-        <div className="flex items-center space-x-1 relative w-full justify-center">
-          <span className="font-semibold text-white text-xl text-center">ticketmaster</span>
-          <div className="absolute right-1 h-5 w-5 border border-white rounded-full overflow-hidden">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
-              alt="US Flag"
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-      </div>
 
-      {/* Main Content */}
-      {/* <div className="w-full flex-grow pb-20 overflow-hidden no-scrollbar">
-        <div className="p-4 space-y-4 bg-black">
-          <Header />
-          <Searchbar />
-        </div>
+    return (
+        // <div className="min-h-screen text-black overflow-hidden font-sans flex flex-col items-center">
+            
+        //     {/* {!isFullScreenModal && !isTicketSelectModalOpen && (
+        //         <div className="w-full h-10 flex items-center justify-between px-4 pt-1 text-sm max-w-sm fixed top-0 bg-black z-40">
+        //             <div className="flex items-center space-x-1">
+        //                 <div className="w-2 h-2 bg-red-600 rounded-full"></div> 
+        //                 <span className="font-semibold text-white/50">ticketmaster</span>
+        //             </div>
+        //         </div>
+        //     )} */}
 
-        <div className="pt-4 space-y-4">
-          <FeaturedEvent />
-        </div>
 
-        <div className="px-4 mt-6">
-          <PopularNearYou />
-        </div>
-      </div>  */}
-<Account />
-      {/* Bottom Navigation */}
-      <MobileNavigation navItems={navItems} />
-    </div>
-  );
+        //     <div className={`w-full max-w-sm flex-grow overflow-hidden ${isFullScreenModal || isTicketSelectModalOpen ? 'mt-0' : 'mt-0'}`}>
+        //         <Routes>
+        //             <Route path="/" element={<Home/>} />
+        //             <Route path="/foryou" element={<PlaceholderPage title="For You" />} />
+        //             <Route path="/mytickets" element={<TicketCarouselView />} />
+        //             <Route path="/mytickets/barcode" element={<TicketBarcodeView />} />
+        //             <Route path="/sell" element={<PlaceholderPage title="Sell" />} />
+        //             <Route path="/account" element={<Account />} /> 
+        //             <Route path="*" element={<PlaceholderPage title="404 Not Found" />} />
+        //         </Routes>
+        //     </div>
+
+        //     {!isFullScreenModal && !isTicketSelectModalOpen && (
+        //         <MobileNavigation navItems={navItems} currentPath={location.pathname} />
+        //     )}
+        // </div>
+        <>
+<TicketSelectionModal />
+        </>
+    );
 };
+
 
 export default App;

@@ -11,7 +11,7 @@ const MobileNavigation = ({ navItems }) => (
         className={({ isActive }) =>
           `flex flex-col items-center justify-center cursor-pointer transition-colors ${
             isActive
-              ? 'text-blue-600 border-t-2 border-blue-600' // ✅ Highlight active tab
+              ? 'text-blue-600' // ✅ Highlight active tab
               : 'text-black hover:text-black/80'
           }`
         }

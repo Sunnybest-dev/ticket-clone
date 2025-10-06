@@ -129,6 +129,7 @@ const Account = () => {
                     <AccountRow icon={UserIcon} label="Contact Customer Service" />
                     <AccountRow icon={BellIcon} label="FAQ & Help Center" />
                 </AccountSection>
+                <p className='text-red-700 mt-4 text-base'>Log out</p>
             </div>
         </div>
     );
